@@ -9,14 +9,16 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
     <div class="taskMaker">
       <h1>TO DO LIST</h1>
       <div class="inputContainer" id='submit'>
-        <input 
-        id="task" 
-        class="taskInput" 
-        type="text" 
-        placeholder="What will you be doing?">
-        <button class="addButton">
-          Add Task
-        </button>
+        <form class='submit'>
+          <input 
+          id="task" 
+          class="taskInput" 
+          type="text" 
+          placeholder="What will you be doing?">
+          <button class="addButton">
+            Add Task
+          </button>
+        </form>
         <button class='removeButton'>
           Remove Tasks Done
         </button>
@@ -27,7 +29,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
   </div>
 `;
 
-addTask(document.querySelector<HTMLButtonElement>('.addButton')!);
+addTask(document.querySelector<HTMLFormElement>('.submit')!);
 taskPressed(document.querySelector<HTMLUListElement>('#tasksList')!);
 removeTask(document.querySelector<HTMLUListElement>('#tasksList')!);
 removeDoneTasks(document.querySelector<HTMLButtonElement>('.removeButton')!);

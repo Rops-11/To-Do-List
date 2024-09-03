@@ -1,5 +1,4 @@
-export function addTask(button: HTMLButtonElement) {
-
+export function addTask(form: HTMLFormElement) {
   const addTask = () => {
     // Fetching Datas/Making Variables
     var task = document.querySelector<HTMLInputElement>('#task')!.value;
@@ -28,5 +27,11 @@ export function addTask(button: HTMLButtonElement) {
     }
   };
 
-  button.addEventListener('click', () => addTask(), false);
+  form.addEventListener(
+    'submit',
+    (e) => {
+      e.preventDefault(), addTask();
+    },
+    false
+  );
 }
