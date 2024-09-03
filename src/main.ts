@@ -7,20 +7,20 @@ import { removeDoneTasks } from './components/removeDoneTasks.ts';
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
   <div class="interface">
     <div class="taskMaker">
-        <h1>TO DO LIST</h1>
-        <div class="inputContainer">
-            <input 
-            id="task" 
-            class="taskInput" 
-            type="text" 
-            placeholder="What will you be doing?">
-            <button class="addButton">
-              Add Task
-            </button>
-            <button class='removeButton'>
-              Remove Tasks Done
-            </button>
-        </div>
+      <h1>TO DO LIST</h1>
+      <div class="inputContainer" id='submit'>
+        <input 
+        id="task" 
+        class="taskInput" 
+        type="text" 
+        placeholder="What will you be doing?">
+        <button class="addButton">
+          Add Task
+        </button>
+        <button class='removeButton'>
+          Remove Tasks Done
+        </button>
+      </div>
     </div>
     <ul id="tasksList">
     </ul>

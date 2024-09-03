@@ -1,7 +1,8 @@
-export function addTask(element: HTMLButtonElement) {
+export function addTask(button: HTMLButtonElement) {
+
   const addTask = () => {
     // Fetching Datas/Making Variables
-    const task = document.querySelector<HTMLInputElement>('#task')!.value;
+    var task = document.querySelector<HTMLInputElement>('#task')!.value;
     const tasksList = document.querySelector<HTMLUListElement>('#tasksList')!;
 
     // Making Nodes
@@ -21,10 +22,11 @@ export function addTask(element: HTMLButtonElement) {
       taskTab.appendChild(taskText);
       taskTab.appendChild(close);
       tasksList.appendChild(taskTab);
+      document.querySelector<HTMLInputElement>('#task')!.value = '';
     } else {
       alert('Write your Task.');
     }
   };
 
-  element.addEventListener('click', () => addTask(), false);
+  button.addEventListener('click', () => addTask(), false);
 }

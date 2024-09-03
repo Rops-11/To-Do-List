@@ -16,7 +16,7 @@
 h1 {
   text-align: center;
   font-family: 'Times New Roman';
-  font-size: 70px;
+  font-size: 4vw;
   margin: 0px;
   letter-spacing: 2px;
   font-weight: bold;
@@ -36,7 +36,7 @@ li {
   background-color: #8c8f75;
   display: flex;
   flex-direction: row;
-  margin: 2px;
+  margin-bottom: 2px;
   transition: 0.8s;
   opacity: 0.8;
 }
@@ -48,7 +48,7 @@ li.checked {
 }
 
 li:hover {
-  scale: 1.1;
+  scale: 1.05;
 }
 
 #app {
@@ -60,10 +60,6 @@ li:hover {
   margin: 0 auto;
   padding: 50px;
   /* text-align: center; */
-}
-
-#task {
-  width: 50%;
 }
 
 #tasksList {
@@ -105,6 +101,7 @@ li:hover {
 .taskMaker {
   display: flex;
   flex-direction: column;
+  position: relative;
   padding: 10px;
   background-color: #0a3025;
   justify-content: center;
@@ -119,25 +116,26 @@ li:hover {
   padding-right: 15px;
   border-radius: 10px;
   font-size: 15px;
-  margin-right: 5px;
   opacity: 0.7;
+  width: 50%;
 }
 
 .inputContainer {
   display: flex;
   justify-content: space-evenly;
   padding: 10px;
+  /* width: auto; */
 }
 
 .addButton {
   background-color: #01422a;
   transition-duration: 0.4s;
   border-radius: 10px;
-  font-size: 150%;
+  font-size: 1.5vw;
   color: white;
   width: 25%;
   font-family: 'Times New Roman';
-  margin-right: 3px;
+  margin-left: 5px;
   opacity: 0.7;
 }
 
@@ -149,13 +147,21 @@ li:hover {
   background-color: #01422a;
   transition-duration: 0.4s;
   border-radius: 10px;
-  font-size: 100%;
+  font-size: 1vw;
   color: white;
   width: 25%;
   font-family: 'Times New Roman';
+  margin-left: 3px;
   opacity: 0.7;
 }
 
 .removeButton:hover {
   background-color: #033623;
 }
+
+/* .saveButton {
+  background-color: green;
+  font-size: 1vw;
+  border-radius: 10px;
+  padding: 0.5vw;
+} */
