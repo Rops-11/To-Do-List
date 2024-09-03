@@ -4,7 +4,7 @@ export function addTask(form: HTMLFormElement) {
     var task = document.querySelector<HTMLInputElement>('#task')!.value;
     const tasksList = document.querySelector<HTMLUListElement>('#tasksList')!;
 
-    // Making Nodes
+    // Making Nodes/Modifications
     const taskTab = document.createElement('li');
     const checkBox = document.createElement('img');
     checkBox.src = 'src/assets/unchecked.png';
