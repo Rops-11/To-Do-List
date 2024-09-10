@@ -1,37 +1,30 @@
-export function addTask(form: HTMLFormElement) {
-  const addTask = () => {
-    // Fetching Datas/Making Variables
-    var task = document.querySelector<HTMLInputElement>('#task')!.value;
-    const tasksList = document.querySelector<HTMLUListElement>('#tasksList')!;
+import { Task } from '../main';
+import { renderAddedTask } from './renderTasks';
 
-    // Making Nodes/Modifications
-    const taskTab = document.createElement('li');
-    const checkBox = document.createElement('img');
-    checkBox.src = 'src/assets/unchecked.png';
-    checkBox.id = 'checkbox';
-    const taskText = document.createElement('p');
-    taskText.innerHTML = task;
-    const close = document.createElement('span');
-    close.id = 'close';
-    close.innerHTML = '&times;';
+export const addTask = (form: HTMLFormElement, taskArray: Array<Task>) => {
+  const addTask = () => {
+    let task = document.querySelector<HTMLInputElement>('#task')!.value;
+    let dueDate = document.querySelector<HTMLInputElement>('#date')!.value;
+    let newTask: Task = {
+      content: task,
+      date: new Date(), // date placed
+      dueDate: dueDate,
+      checked: false,
+    };
 
     // Appending
     if (task !== '') {
-      taskTab.appendChild(checkBox);
-      taskTab.appendChild(taskText);
-      taskTab.appendChild(close);
-      tasksList.appendChild(taskTab);
+      taskArray.push(newTask);
+      renderAddedTask(taskArray);
       document.querySelector<HTMLInputElement>('#task')!.value = '';
+      document.querySelector<HTMLInputElement>('#date')!.value = '';
     } else {
       alert('Write your Task.');
     }
   };
 
-  form.addEventListener(
-    'submit',
-    (e) => {
-      e.preventDefault(), addTask();
-    },
-    false
-  );
-}
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    addTask();
+  });
+};
