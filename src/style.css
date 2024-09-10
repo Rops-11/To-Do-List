@@ -72,6 +72,10 @@ li.checked {
   opacity: 0.4;
 }
 
+li.due.checked {
+  background-color: #c2b11d;
+}
+
 li:hover {
   scale: 1.05;
   cursor: pointer;

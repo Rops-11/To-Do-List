@@ -27,10 +27,10 @@ const makeTask = (taskArray: Array<Task>, itemIndex: number) => {
   }
   const checkBox = document.createElement('img');
   if (currentItemChecked === true) {
-    checkBox.src = 'src/assets/checked.png';
+    checkBox.src = 'src/assets/checkbox-check-svgrepo-com.svg';
     taskTab.classList.add('checked');
   } else {
-    checkBox.src = 'src/assets/unchecked.png';
+    checkBox.src = 'src/assets/checkbox-unchecked-svgrepo-com.svg';
   }
 
   checkBox.id = 'checkbox';

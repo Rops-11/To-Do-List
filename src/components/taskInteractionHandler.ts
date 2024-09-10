@@ -8,11 +8,12 @@ const placeCheck = (
 ) => {
   // should be in render
   let checkbox = item.querySelector<HTMLImageElement>('#checkbox');
-  let checked = 'src/assets/checked.png';
-  let unchecked = 'src/assets/unchecked.png';
+  let checked = 'src/assets/checkbox-check-svgrepo-com.svg';
+  let unchecked = 'src/assets/checkbox-unchecked-svgrepo-com.svg';
 
   console.log(itemIndex);
-  item.className == 'checked' // should be in render
+
+  item.classList.contains('checked') // should be in render
     ? (item.classList.remove('checked'),
       (checkbox!.src = unchecked),
       (taskArray[itemIndex].checked = false))
