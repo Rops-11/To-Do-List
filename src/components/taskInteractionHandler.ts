@@ -8,8 +8,8 @@ const placeCheck = (
 ) => {
   // should be in render
   let checkbox = item.querySelector<HTMLImageElement>('#checkbox');
-  let checked = 'src/assets/checkbox-check-svgrepo-com.svg';
-  let unchecked = 'src/assets/checkbox-unchecked-svgrepo-com.svg';
+  let checked = 'public/assets/checkbox-check-svgrepo-com.svg';
+  let unchecked = 'public/assets/checkbox-unchecked-svgrepo-com.svg';
 
   console.log(itemIndex);
 
