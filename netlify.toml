@@ -1,6 +1,0 @@
-[build]
-  publish = "dist"
-  command = "npm run dev"
-
-[dev]
-  framework = "vite"
