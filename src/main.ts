@@ -20,7 +20,7 @@ const storage = JSON.parse(localStorage.getItem(storageKey)!);
 let tasksArray: Array<Task> = storage !== null ? storage : [];
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
-<div class="interface">
+<div class="toDoList">
   <div class="taskMaker">
     <h1>TO DO LIST</h1>
     <div class="inputContainer" id='submit'>

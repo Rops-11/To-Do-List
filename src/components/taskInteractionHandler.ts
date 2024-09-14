@@ -8,8 +8,8 @@ const placeCheck = (
 ) => {
   // should be in render
   let checkbox = item.querySelector<HTMLImageElement>('#checkbox');
-  let checked = 'public/static/assets/checkbox-check-svgrepo-com.svg';
-  let unchecked = 'public/static/assets/checkbox-unchecked-svgrepo-com.svg';
+  let checked = '/static/assets/checkbox-check-svgrepo-com.svg';
+  let unchecked = '/static/assets/checkbox-unchecked-svgrepo-com.svg';
 
   console.log(itemIndex);
 
@@ -43,7 +43,7 @@ export const selectAll = (
   button: HTMLButtonElement,
   taskArray: Array<Task>
 ) => {
-  const selectAll = () => {
+  const selectAllHandler = () => {
     const tasksList = document.querySelector<HTMLUListElement>('#tasksList')!;
     const tasks = Array.from(tasksList.children!);
     const tasksCount = tasks.length;
@@ -72,7 +72,7 @@ export const selectAll = (
   button.addEventListener(
     'click',
     () => {
-      selectAll();
+      selectAllHandler();
     },
     false
   );

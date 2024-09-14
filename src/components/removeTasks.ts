@@ -44,7 +44,7 @@ export const removeDoneTasks = (
         setTimeout(() => {
           checkedTasks[0].remove(), taskArray.splice(0, 1);
           saveStorage(taskArray);
-        }, 500); // Removes a Done Task
+        }, 200); // Removes a Done Task
         i++; // add 1 on the loop
         if (i < tasksCount) {
           loop(); // calls the function again
