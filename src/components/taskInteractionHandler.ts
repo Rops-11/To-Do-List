@@ -4,7 +4,8 @@ import { saveStorage } from './localStorage';
 const placeCheck = (
   item: HTMLLIElement,
   taskArray: Array<Task>,
-  itemIndex: number
+  itemIndex: number,
+  selectType: string
 ) => {
   // should be in render
   let checkbox = item.querySelector<HTMLImageElement>('#checkbox');
@@ -13,13 +14,15 @@ const placeCheck = (
 
   console.log(itemIndex);
 
-  item.classList.contains('checked') // should be in render
-    ? (item.classList.remove('checked'),
-      (checkbox!.src = unchecked),
-      (taskArray[itemIndex].checked = false))
-    : (item.classList.add('checked'),
-      (checkbox!.src = checked),
-      (taskArray[itemIndex].checked = true));
+  if (item.classList.contains('checked') === false) {
+    item.classList.add('checked');
+    checkbox!.src = checked;
+    taskArray[itemIndex].checked = true;
+  } else if (selectType !== 'all') {
+    item.classList.remove('checked');
+    checkbox!.src = unchecked;
+    taskArray[itemIndex].checked = false;
+  }
 };
 
 export const taskPressed = (
@@ -27,12 +30,13 @@ export const taskPressed = (
   taskArray: Array<Task>
 ) => {
   const pressedHandler = (ev: Event) => {
+    const selectType = 'one';
     if ((<HTMLElement>ev.target).tagName === 'LI') {
       let target = <HTMLLIElement>ev.target;
       let uListChildren = Array.from(target.parentElement?.children!);
       let targetIndex = uListChildren.indexOf(target);
 
-      placeCheck(target, taskArray, targetIndex);
+      placeCheck(target, taskArray, targetIndex, selectType);
     }
     saveStorage(taskArray);
   };
@@ -44,6 +48,7 @@ export const selectAll = (
   taskArray: Array<Task>
 ) => {
   const selectAllHandler = () => {
+    const selectType = 'all';
     const tasksList = document.querySelector<HTMLUListElement>('#tasksList')!;
     const tasks = Array.from(tasksList.children!);
     const tasksCount = tasks.length;
@@ -54,7 +59,7 @@ export const selectAll = (
       let currentIndex = tasks.indexOf(currentItem);
       setTimeout(function () {
         setTimeout(() => {
-          placeCheck(currentItem, taskArray, currentIndex);
+          placeCheck(currentItem, taskArray, currentIndex, selectType);
           saveStorage(taskArray);
         }, 500);
         i++; // add 1 on the loop

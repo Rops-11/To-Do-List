@@ -58,8 +58,7 @@ li {
 
 #fade {
   opacity: 0;
-  margin-left: 100px;
-  transition: 0.3s;
+  margin-left: 200px;
 }
 
 li.checked {
