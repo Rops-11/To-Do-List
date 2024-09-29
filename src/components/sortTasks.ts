@@ -6,30 +6,28 @@ export const sortTasks = (
   button: HTMLButtonElement,
   sortOptions: HTMLSelectElement
 ) => {
+  button.disabled = true;
   const removeTasks = () => {
     const tasksList = document.querySelector<HTMLUListElement>('#tasksList');
     const tasks = document.getElementsByTagName('li');
     let tasksCount = tasksList?.childElementCount!;
-    let i = 0; // for loop()
+    let i = 0; // for remove()
 
-    // for slow remove animation
-    function loop() {
-      setTimeout(function () {
-        tasks[0].remove();
-
-        i++; // add 1 on the loop
-        if (i < tasksCount) {
-          loop(); // calls the function again
-        }
-      }, 0.2); // 0.5 seconds delay
+    function remove() {
+      tasks[0].remove();
+      i++; // add 1 on the loop
+      if (i < tasksCount) {
+        remove(); // calls the function again
+      } else {
+        button.disabled = false;
+      }
     }
     // loop start
     if (tasksCount !== 0) {
-      loop();
+      remove();
     }
   };
 
-  console.log(taskArray);
   let sortValue = sortOptions.value;
 
   const sortByDate = () => {

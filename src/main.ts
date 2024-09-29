@@ -14,51 +14,58 @@ export type Task = {
   checked: boolean;
 };
 
-const storage = JSON.parse(localStorage.getItem(storageKey)!);
+// put folder and filter options and button
 
-// array variable catcher
-let tasksArray: Array<Task> = storage !== null ? storage : [];
+const storage = JSON.parse(localStorage.getItem(storageKey)!);
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
 <div class="toDoList">
-  <div class="taskMaker">
-    <h1>TO DO LIST</h1>
-    <div class="inputContainer" id='submit'>
-      <form class='submit'>
-        <input 
-        id="task" 
-        class="taskInput" 
-        type="text" 
-        placeholder="What will you be doing?">
-        <input 
-        id="date" 
-        class="taskInput" 
-        type="datetime-local" 
-        placeholder="What will you be doing?">
-        <button class="addButton" type="submit">
-          Add Task
-        </button>
-      </form>
-      <button class='removeButton'>
-          Remove Tasks Done
-      </button>
-    </div>
-  </div>
-  <div class='tasksContainer'>
-    <button class="selectAll">Select All</button>
-    <div class="sortContainer">
-      <select name="sortOptions" id="sortOptions">
-        <option value="Alphabetically">Alphabetically</option>
-        <option value="By Date">By Date</option>
-        <option value="By Date">By Due Date</option>
-      </select>
-      <button class="sortButton">Sort</button>
-    </div>
-    <ul id="tasksList">
-    </ul>
-  </div>
-</div>
+        <div class="taskMaker">
+          <h1>TO DO LIST</h1>
+          <div
+            class="inputContainer"
+            id="submit">
+            <form class="submit">
+              <input
+                id="task"
+                class="taskInput"
+                type="text"
+                placeholder="What will you be doing?" />
+              <input
+                id="date"
+                class="taskInput"
+                type="datetime-local"
+                placeholder="What will you be doing?" />
+              <button
+                class="addButton"
+                type="submit">
+                Add Task
+              </button>
+            </form>
+            <button class="removeButton">Remove Tasks Done</button>
+          </div>
+        </div>
+        <div class="tasksContainer">
+          <div class="optionsContainer">
+            <button class="selectAll">Select All</button>
+            <div class="sortContainer">
+              <select
+                name="sortOptions"
+                id="sortOptions">
+                <option value="Alphabetically">Alphabetically</option>
+                <option value="By Date">By Date</option>
+                <option value="By Date">By Due Date</option>
+              </select>
+              <button class="sortButton">Sort</button>
+            </div>
+          </div>
+          <ul id="tasksList"></ul>
+        </div>
+      </div>
 `;
+
+// array variable catcher
+let tasksArray: Array<Task> = storage !== null ? storage : [];
 
 console.log(tasksArray);
 if (tasksArray.length !== 0) {
